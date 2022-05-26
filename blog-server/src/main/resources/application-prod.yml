@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://:3306/blog?useUnicode=true&characterEncoding=utf-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai
+    username: root
+    password:
+  redis:
+    host:
+    password:
+
+logging:
+  level:
+    root: warn
+    pers.fjl.server: debug
+  file:
+    path: log/blog-prod.log
+eureka:
+  client:
+    service-url:
+      defaultZone: http://:8686/eureka/
+  instance:
+    prefer-ip-address: true
+ribbon:
+  ReadTimeout: 600000000
+  ConnectTimeout: 600000000

@@ -1,0 +1,72 @@
+server:
+  port: 9002
+  servlet:
+    session:
+      timeout: 3600
+spring:
+  profiles:
+    active: dev
+  application:
+    name: blog-server #指定服务名
+  mail:
+    host: smtp.qq.com
+    username: 1626680964@qq.com
+    password:
+    default-encoding: UTF-8
+  #    port: 587
+  #    properties:
+  #      mail:
+  #      smtp:
+  #      auth: true
+  #      socketFactory:
+  #      class: javax.net.ssl.SSLSocketFactory
+  rabbitmq:
+    username: guest
+    password: guest
+    host: 127.0.0.1
+    port: 5672
+  elasticsearch:
+    rest:
+      uris: http://localhost:9200
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+es:
+  host: 127.0.0.1
+
+# Mybatis-Plus 配置
+mybatis-plus:
+  mapper-locations: classpath:/mapper/*.xml
+  #实体扫描，多个package用逗号或者分号分隔
+  typeAliasesPackage: pers.fjl.common.po
+  global-config:
+    #    db-config:
+    #      table-prefix: t_
+    id-type: 1  #0:数据库ID自增   1:用户输入id
+    #    db-column-underline: false
+    #    db-config:
+    #          table-underline=false:
+    refresh-mapper: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: true #配置的缓存的全局开关
+    lazyLoadingEnabled: true #延时加载的开关
+    multipleResultSetsEnabled: true #开启延时加载，否则按需加载属性
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #打印sql语句,调试用
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# 上传模式
+upload:
+  mode: oss
+  local:
+    url:
+    path:
+  oss:
+    file:
+      url:
+      bucketName:
+      endpoint:
+      keyId:
+      keySecret:
